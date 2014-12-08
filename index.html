@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>Elevation Map</title>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="http://js.arcgis.com/3.8/js/esri/css/esri.css" />
+    <link rel="stylesheet" href="css/main.css" />
+  
+
+  </head>
+  <body ng-controller="MapCtrl">
+    <div id="navbar">
+      <img id="logo" src="css/img/logo.png" alt="">
+      <div id="logoFont">NJMC Elevation LiDar (PLACEHOLDER TITLTE)</div>
+
+    </div>
+    
+    <div class='sidebar'>
+      <div class='sidecon'>
+        <h1>Elevation Info</h1>
+        <p>Layer Select: </p>
+        <select name="layerSelect" id="layerSelect">
+          <option value="4">LiDAR Bare Earth</option>
+          <option value="3">LiDAR High Hit</option>
+        </select>
+        <div class='infobox'>{{elevation}}</div>
+      </div>
+    </div>
+    
+
+    <esri-map id="map" center="-74.0676,40.7820" zoom="12" basemap="satellite" onclick="click">
+      <div id="LocateButton"></div>
+      <esri-feature-layer url="http://arcgis5.njmeadowlands.gov/webmaps/rest/services/Online/DistrictElevationPointer/MapServer/"></esri-feature-layer>
+      
+    </esri-map>
+
+    <!-- load Angular and the JS API -->
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.12/angular.js"></script>
+    <script src="http://js.arcgis.com/3.8/"></script>
+
+    <!-- load our setup file -->
+    <script src="setup.js" type="text/javascript" ></script>
+
+    <!-- start loading our application -->
+    <script src="init.js" type="text/javascript" ></script>
+
+    <script src='//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js' type='text/javascript'></script>
+  </body>
+</html>

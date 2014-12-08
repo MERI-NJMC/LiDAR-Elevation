@@ -1,0 +1,92 @@
+html, body, #map {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+	font-family: helvetica, sans-serif;
+}
+
+#logo {
+	width: 50px;
+	height: 50px;
+	float: left;
+	margin-top: -1px;
+}
+
+#logoFont {
+	margin-left: 10px;
+	margin-top: 10px;
+	font-family: helvetica, sans-serif;
+	font-size: 24px;
+	color: white;
+	float: left;
+}
+
+.map {
+	height: 100%;
+	left: 0;
+	width: 100%;
+	position: fixed;
+	top: 50px;
+	overflow: hidden;
+}
+
+#mapCon {
+	overflow: hidden;
+}
+
+
+#navbar {
+	width: 100%; 
+	height: 50px;
+	z-index: 2;
+	background-color: #3c557d;
+	position: fixed;
+	float: left;
+	margin-bottom: 10px;
+	padding-left: 30px;
+	padding-right: 30px;
+}
+
+.sidebar {
+	z-index: 10;
+	top: 50px;
+	position: absolute;
+	background-color: white;
+	height: 150px;
+	width: 300px;
+	right: 0px;
+
+}
+
+.sidecon {
+	width: 90%;
+}
+.zoomLocateButton {
+	position: absolute;
+	top: 150px;
+	left: 20px;
+	z-index: 2;
+	background-image: url('img/locate.png');
+	border-radius: 0;
+}
+
+@media only screen and (max-width: 720px) { 
+	
+	#logo {
+		margin-left: 3px;
+	}
+
+	#logoFont {
+		font-size: 12px;
+	}
+
+	#navbar {
+		padding-left: 10px;
+		padding-right: 10px;	
+	}
+	
+
+}
