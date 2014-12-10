@@ -14,13 +14,13 @@
   <body ng-controller="MapCtrl">
     <div id="navbar">
       <img id="logo" src="css/img/logo.png" alt="">
-      <div id="logoFont"><font color="white">NJMC Elevation Finder</font></div>
+      <div id="logoFont"><font color="white">NJMC ELEVATION FINDER</font></div>
 
     </div>
     
     <div class='sidebar'>
       <div class='sidecon'>
-        <h1><font color="white">Elevation Info</font></h1>
+        <h3><font color="white">Elevation Info</font></h3>
         <span><b><font color="white">Layer Select: </font></b>
         <select name="layerSelect" id="layerSelect">
           <option value="4">LiDAR Bare Earth</option>
@@ -29,13 +29,16 @@
         </span>
         <p>
         <div class='infobox'><span><b><font color="white">Elevation(Ft.):  </b></span>{{elevation}}</font></div>
+        <div class='xcord'><span><b><font color="white">X:  </b></span> {{x}}  </font></div>
+        <div class='ycord'><span><b><font color="white">Y:  </b></span> {{y}}  </font></div>
       </div>
     </div>
     
-
-    <esri-map id="map" center="-74.0676,40.7820" zoom="12" basemap="satellite" onclick="click">
+    <!-- custom elements esri-map takes in attributes that are linked to map.js -->
+    <esri-map id="map" center="-74.0676,40.7820" zoom="12" basemap="satellite" onclick="click"> <!-- onlick triggers an event every click -->
       <div id="LocateButton"></div>
-      <esri-feature-layer url="http://arcgis5.njmeadowlands.gov/webmaps/rest/services/Online/DistrictElevationPointer/MapServer/"></esri-feature-layer>
+      <div id="Search"></div>
+      <esri-feature-layer url="http://arcgis5.njmeadowlands.gov/webmaps/rest/services/Online/DistrictElevationPointer/MapServer/"></esri-feature-layer> <!-- map used located at url -->
       
     </esri-map>
 

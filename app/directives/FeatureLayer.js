@@ -34,9 +34,9 @@ define([
         //default layer ids
         var visibleLayerIDs = [0,1,2,4];
         $scope.visLayer = 4;
-        layer.setVisibleLayers(visibleLayerIDs);
+        layer.setVisibleLayers(visibleLayerIDs); //setVisibleLayers takes in an array of integers
         
-        on(dom.byId('layerSelect'), 'change', function(evt) {
+        on(dom.byId('layerSelect'), 'change', function(evt) { //listening for any change on layer select
           //console.log(evt);
           if (evt.target.value === '4') {
             visibleLayerIDs = [0,1,2,4];

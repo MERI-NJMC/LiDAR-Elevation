@@ -3,7 +3,10 @@ define([
   'esri/map',
   'esri/geometry/Point',
   'esri/dijit/LocateButton',
-], function (app, Map, Point,LocateButton) {
+  'esri/dijit/Geocoder',
+  'dojo/domReady!'
+
+], function (app, Map, Point, LocateButton, Geocoder) {
 
   // register a new directive called esriMap with our app
   app.directive('esriMap', function(){
@@ -39,14 +42,14 @@ define([
       // this is also the best place to setup our map
       controller: function($scope, $element, $attrs){
         // setup our map options based on the attributes and scope
-        var mapOptions = {
+        var mapOptions = { //takes in all attributes from esri map element from index.html 
           center: ($attrs.center) ? $attrs.center.split(",") : $scope.center,
           zoom: ($attrs.zoom) ? $attrs.zoom : $scope.zoom,
           basemap: ($attrs.basemap) ? $attrs.basemap : $scope.basemap
         };
 
         // declare our map
-        var map = new Map($attrs.id, mapOptions);
+        var map = new Map($attrs.id, mapOptions); //$attrs.id is where the map will be(the map ID from index.html), 
 
         //geolacte gos button
         var geoLocate = new LocateButton({
@@ -54,6 +57,16 @@ define([
         }, "LocateButton");
 
         geoLocate.startup();
+
+        geocoder = new esri.dijit.Geocoder({
+          map: map,
+          autoComplete: true,
+          
+        },"Search");
+        geocoder.startup();
+      
+
+
 
         // start exposing an API by setting properties on "this" which is our controller
         // lets expose the "addLayer" method so child directives can add themselves to the map
@@ -76,6 +89,8 @@ define([
 
         // listen for click events and expost them as broadcasts on the scope and suing the scopes click handler
         map.on("click", function(e){
+       
+          
           // emit a message that bubbles up scopes, listen for it on your scope
           $scope.$emit("map.click", e);
 
