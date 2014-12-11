@@ -11,8 +11,8 @@ define([
     // this object will tell angular how our directive behaves
     return {
       // only allow esriFeatureLayer to be used as an element (<esri-feature-layer>)
-      restrict: 'E',
-
+      restrict: 'E'
+,
       // require the esriFeatureLayer to have its own controller as well an esriMap controller
       // you can access these controllers in the link function
       require: ["esriFeatureLayer", "^esriMap"],
@@ -33,20 +33,28 @@ define([
           });
         //default layer ids
         var visibleLayerIDs = [0,1,2,4];
-        $scope.visLayer = 4;
+      
+
+        console.log($scope.visLayer);
         layer.setVisibleLayers(visibleLayerIDs); //setVisibleLayers takes in an array of integers
         
         on(dom.byId('layerSelect'), 'change', function(evt) { //listening for any change on layer select
-          //console.log(evt);
+          console.log(evt);
           if (evt.target.value === '4') {
             visibleLayerIDs = [0,1,2,4];
             layer.setVisibleLayers(visibleLayerIDs);
             $scope.visLayer = 4;
+            console.log($scope.visLayer);
+            //var bareEarth = element.find("elevationBE");
+            //console.log(bareEarth);
+
+
 
           } else {
             visibleLayerIDs = [0,1,2,3];
             layer.setVisibleLayers(visibleLayerIDs);
             $scope.visLayer = 3;
+            console.log($scope.visLayer);
           }
           
         });

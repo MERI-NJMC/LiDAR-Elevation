@@ -48,6 +48,12 @@ define([
           basemap: ($attrs.basemap) ? $attrs.basemap : $scope.basemap
         };
 
+        $scope.visLayer = 4;
+        $scope.visLayer4 = true;
+        $scope.visLayer3 = false;
+
+        console.log($scope.visLayer4);
+
         // declare our map
         var map = new Map($attrs.id, mapOptions); //$attrs.id is where the map will be(the map ID from index.html), 
 
