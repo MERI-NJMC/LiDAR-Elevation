@@ -7,10 +7,11 @@ define([
   'dojo/dom-style',
   'esri/geometry/Point', //for the conversion
   'esri/geometry', //for conversion
+  'esri/geometry/webMercatorUtils',
   'dojo/domReady!'
   
 
-], function (app, SimpleMarkerSymbol, Graphic, screenUtils, Color, domStyle, Point, geometry) {
+], function (app, SimpleMarkerSymbol, Graphic, screenUtils, Color, domStyle, Point, geometry,webMercatorUtils) {
 
   //yo james 
   // define our map controller and register it with our app
@@ -27,21 +28,18 @@ define([
           extent = map.extent.xmin +',' + map.extent.ymin +',' + map.extent.xmax +',' + map.extent.ymax;
      
       
-      var prelat = e.mapPoint.x 
-      var prelon = e.mapPoint.y
+      //var prelat = e.mapPoint.x 
+      //var prelon = e.mapPoint.y
 
-      var lat = prelat.getLatitude; //not working
-      var lon = prelon.getLongitude; //not working
+      var mp = esri.geometry.webMercatorToGeographic(e.mapPoint);
 
-      
+      $scope.x = mp.x;
+      $scope.y = mp.y;
 
-      console.log(lat);
-      console.log(lon);
 
       
-      $scope.x =  prelat; //temporary
-      $scope.y =  prelon; //temporary
-      
+
+  
       
 
       /*
