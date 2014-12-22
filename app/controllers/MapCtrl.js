@@ -13,7 +13,6 @@ define([
 
 ], function (app, SimpleMarkerSymbol, Graphic, screenUtils, Color, domStyle, Point, geometry,webMercatorUtils) {
 
-  //yo james 
   // define our map controller and register it with our app
   app.controller("MapCtrl", function($scope,$http){
 
@@ -28,27 +27,14 @@ define([
           extent = map.extent.xmin +',' + map.extent.ymin +',' + map.extent.xmax +',' + map.extent.ymax;
      
       
-      //var prelat = e.mapPoint.x 
-      //var prelon = e.mapPoint.y
-
+      
+      //converts esri to lat and long
       var mp = esri.geometry.webMercatorToGeographic(e.mapPoint);
 
       $scope.x = mp.x;
       $scope.y = mp.y;
 
-
-      
-
-  
-      
-
-      /*
-      $scope.x =  e.mapPoint.x;
-      $scope.y =  e.mapPoint.y;
-      console.log($scope.x);
-      console.log($scope.y);
-      */
-      
+      //sets the marker on the point of the click
       map.graphics.clear();
       var symbol = new SimpleMarkerSymbol()
       .setStyle("cross")

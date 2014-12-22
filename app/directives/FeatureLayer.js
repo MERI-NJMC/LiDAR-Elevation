@@ -35,6 +35,7 @@ define([
         var visibleLayerIDs = [0,1,2,4];
       
 
+
         console.log($scope.visLayer);
         layer.setVisibleLayers(visibleLayerIDs); //setVisibleLayers takes in an array of integers
         
@@ -43,18 +44,10 @@ define([
           if (evt.target.value === '4') {
             visibleLayerIDs = [0,1,2,4];
             layer.setVisibleLayers(visibleLayerIDs);
-            $scope.visLayer = 4;
-            console.log($scope.visLayer);
-            //var bareEarth = element.find("elevationBE");
-            //console.log(bareEarth);
-
-
 
           } else {
             visibleLayerIDs = [0,1,2,3];
             layer.setVisibleLayers(visibleLayerIDs);
-            $scope.visLayer = 3;
-            console.log($scope.visLayer);
           }
           
         });

@@ -49,8 +49,7 @@ define([
         };
 
         $scope.visLayer = 4;
-        $scope.visLayer4 = true;
-        $scope.visLayer3 = false;
+
 
         console.log($scope.visLayer4);
 
